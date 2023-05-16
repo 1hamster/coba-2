@@ -31,6 +31,7 @@ pub enum C1Token {
     #[token("while")]
     KwWhile,
 
+
     // Operators
     #[token("+")]
     Plus,
@@ -70,6 +71,26 @@ pub enum C1Token {
 
     #[token("||")]
     Or,
+
+
+    // Misc
+    #[token(",")]
+    Comma,
+
+    #[token(";")]
+    Semicolon,
+    
+    #[token("(")]
+    LParen,
+    
+    #[token(")")]
+    RParen,
+
+    #[token("{")]
+    LBrace,
+
+    #[token("}")]
+    RBrace,
     // Logos requires one token variant to handle errors,
     // it can be named anything you wish.
     #[error]
