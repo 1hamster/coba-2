@@ -94,24 +94,26 @@ pub enum C1Token {
 
 
     // Termvariablen
-    #[regex("", Integer)]
+    #[regex("[0-9]+")]
     ConstInt,
 
+    #[regex(r"[0-9]*\.[0-9]+([eE]([+-])?([0-9])+)?|([0-9]+[eE]([+-])?([0-9])+)")]
+    ConstFloat,
 
+    #[regex("true|false")]
+    ConstBoolean,
 
-    // Pseudotoken
-    // #[regex("[0-9]")]
-    // Digit,
+    #[regex("\"[^\n\"]*\"")]
+    ConstString,
 
-    // #[regex("D+")]
-    // Integer,
+    #[regex("[a-zA-Z]+([a-zA-Z]|[0-9])*")]
+    Id,
 
-    // #[regex("{Integer} "." {Integer} | "." {Integer}")]
-    // Float,
-
-
+    #[regex(r"/\*([^*]|(\*+[^*/]))*\*+/")]
+    Comment,
     // Logos requires one token variant to handle errors,
     // it can be named anything you wish.
     #[error]
+    #[regex(r"[ \t\n\f]+", logos::skip)]
     Error,
 }
