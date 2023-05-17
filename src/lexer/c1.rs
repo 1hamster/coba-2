@@ -91,6 +91,25 @@ pub enum C1Token {
 
     #[token("}")]
     RBrace,
+
+
+    // Termvariablen
+    #[regex("", Integer)]
+    ConstInt,
+
+
+
+    // Pseudotoken
+    // #[regex("[0-9]")]
+    // Digit,
+
+    // #[regex("D+")]
+    // Integer,
+
+    // #[regex("{Integer} "." {Integer} | "." {Integer}")]
+    // Float,
+
+
     // Logos requires one token variant to handle errors,
     // it can be named anything you wish.
     #[error]
