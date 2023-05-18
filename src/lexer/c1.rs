@@ -102,6 +102,7 @@ pub enum C1Token {
     RBrace,
 
     // Termvariablen
+
     #[regex("[0-9]+")]
     ConstInt,
 
@@ -116,10 +117,6 @@ pub enum C1Token {
 
     #[regex("[a-zA-Z]+([0-9]|[a-zA-Z])*")]
     Id,
-
-
-
-
 
     //Pseudotoken
 
