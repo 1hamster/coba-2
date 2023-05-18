@@ -119,6 +119,7 @@ pub enum C1Token {
     //Pseudotoken
     // Logos requires one token variant to handle errors,
     // it can be named anything you wish.
+    #[error]
     #[regex(r"[ \r\t\n\f]+", logos::skip)]
     Error,
 }
