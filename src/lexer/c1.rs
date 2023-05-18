@@ -102,7 +102,10 @@ pub enum C1Token {
     RBrace,
 
     // Termvariablen
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
     #[regex("[0-9]+")]
     ConstInt,
 
@@ -114,16 +117,27 @@ pub enum C1Token {
 
     #[regex("\"[^\n\"]*\"")]
     ConstString,
+<<<<<<< HEAD
 
     #[regex("[a-zA-Z]+([0-9]|[a-zA-Z])*")]
     Id,
 
     //Pseudotoken
+=======
+>>>>>>> main
 
+    #[regex("[a-zA-Z]+([a-zA-Z]|[0-9])*")]
+    Id,
 
+    #[regex(r"/\*([^*]|(\*+[^*/]))*\*+/")]
+    Comment,
     // Logos requires one token variant to handle errors,
     // it can be named anything you wish.
     #[error]
+<<<<<<< HEAD
     #[regex(r"[ \r\t\n\f]+", logos::skip)]
+=======
+    #[regex(r"[ \t\n\f]+", logos::skip)]
+>>>>>>> main
     Error,
 }
