@@ -2,14 +2,23 @@ use logos::Logos;
 
 #[derive(Logos, Debug, PartialEq)]
 pub enum C1Token {
-    // TODO: Define variants and their token/regex
-    // Keywords:
+
+    #[regex("//.*", logos::skip)]
+    #[regex("/\\*[^(*/)]*\\*/", logos::skip)]
+    Comment,
+
     #[token("bool")]
     KwBoolean,
 
     #[token("do")]
     KwDo,
-    
+
+    #[token("if")]
+    KwIf,
+
+    #[token("return")]
+    KwReturn,
+
     #[token("else")]
     KwElse,
 
@@ -38,9 +47,9 @@ pub enum C1Token {
 
     #[token("-")]
     Minus,
-    
-    #[token("*")]
-    Asteriks,
+
+    #[token(r"*")]
+    Asterisk,
 
     #[token("/")]
     Slash,
@@ -59,10 +68,10 @@ pub enum C1Token {
 
     #[token(">")]
     Grt,
-    
+
     #[token("<=")]
     Leq,
-    
+
     #[token(">=")]
     Geq,
 
@@ -79,10 +88,10 @@ pub enum C1Token {
 
     #[token(";")]
     Semicolon,
-    
+
     #[token("(")]
     LParen,
-    
+
     #[token(")")]
     RParen,
 
@@ -92,8 +101,11 @@ pub enum C1Token {
     #[token("}")]
     RBrace,
 
-
     // Termvariablen
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
     #[regex("[0-9]+")]
     ConstInt,
 
@@ -105,6 +117,14 @@ pub enum C1Token {
 
     #[regex("\"[^\n\"]*\"")]
     ConstString,
+<<<<<<< HEAD
+
+    #[regex("[a-zA-Z]+([0-9]|[a-zA-Z])*")]
+    Id,
+
+    //Pseudotoken
+=======
+>>>>>>> main
 
     #[regex("[a-zA-Z]+([a-zA-Z]|[0-9])*")]
     Id,
@@ -114,6 +134,10 @@ pub enum C1Token {
     // Logos requires one token variant to handle errors,
     // it can be named anything you wish.
     #[error]
+<<<<<<< HEAD
+    #[regex(r"[ \r\t\n\f]+", logos::skip)]
+=======
     #[regex(r"[ \t\n\f]+", logos::skip)]
+>>>>>>> main
     Error,
 }
